@@ -8,7 +8,7 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-model_file_url = 'https://www.dropbox.com/s/dqvwtgoy3r8275b/export.pkl?raw=1'
+model_file_url = 'https://www.dropbox.com/s/sqzn6e059ddl7dc/stage-2.pth?raw=1'
 model_file_name = 'model'
 classes = ['action_bronson', 'asap_rocky', 'denzel_curry',
            'joey_badass', 'playboy_carti', 'travis_scott']
@@ -29,7 +29,7 @@ async def download_file(url, dest):
 async def setup_learner():
     await download_file(model_file_url, path/'models'/f'{model_file_name}.pth')
     data_bunch = ImageDataBunch.single_from_classes(path, classes,
-        ds_tfms=get_transforms(), size=224).normalize(imagenet_stats)
+        tfms=get_transforms(), size=224).normalize(imagenet_stats)
     learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
     learn.load(model_file_name)
     return learn
