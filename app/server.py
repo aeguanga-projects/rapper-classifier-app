@@ -8,7 +8,7 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-model_file_url = 'https://www.dropbox.com/s/mhug35gtbwal928/resnet34-333f7ec4.pth?raw=1'
+model_file_url = 'https://www.dropbox.com/s/dqvwtgoy3r8275b/export.pkl?raw=1'
 model_file_name = 'model'
 classes = ['action_bronson', 'asap_rocky', 'denzel_curry',
            'joey_badass', 'playboy_carti', 'travis_scott']
